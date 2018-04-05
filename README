@@ -1,0 +1,5 @@
+gen_ps2go.py:
+	generates probeset to GO mapping
+	reads data/goa_human.gaf and data/HG-U133_Plus_2.na36.annot.csv
+	generates data/ps2go.pickle and ps2go.txt
+
