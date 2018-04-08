@@ -1,5 +1,14 @@
-gen_ps2go.py:
+./gen_ps2go.py
 	generates probeset to GO mapping
 	reads data/goa_human.gaf and data/HG-U133_Plus_2.na36.annot.csv
 	generates data/ps2go.pickle and ps2go.txt
 
+find xxx/ -type f | ./import -o yyy
+	reads a list of mas5 files from input
+	generates npy files with given prefix
+
+./compare ref.npy cohort.npy
+	compare the two sets and generate AUC score for each gene in the second set
+
+./gen_bg_pca.py
+	generates pca for 30000 background samples, save to data/bg_pca.pickle
