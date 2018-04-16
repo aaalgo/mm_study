@@ -46,21 +46,39 @@ uams_calc_clinical(uams)
 #print(uams[["FDDeath", "BL_Date", "os"]])
 #print(uams['gender'])
 
-cohorts = {"EMTAB4032": extract_clinical(sc2.ix[sc2['Study'] == 'EMTAB4032']),
-           "GSE24080": extract_clinical(sc2.ix[sc2['Study'] == 'GSE24080UAMS']),
-           "MMRF": extract_clinical(sc2.ix[sc2['Study'] == 'MMRF']),
+COHORTS = ["EMTAB4032", "GSE24080", "MMRF", "UAMS"]
+
+cohorts = {"EMTAB4032": extract_clinical(sc2.loc[sc2['Study'] == 'EMTAB4032']),
+           "GSE24080": extract_clinical(sc2.loc[sc2['Study'] == 'GSE24080UAMS']),
+           "MMRF": extract_clinical(sc2.loc[sc2['Study'] == 'MMRF']),
            "UAMS": extract_clinical(uams)}
 
 
-def filter_survive (df):
-    live = df.ix[(df['os_flag'] == 0) and (df['os'] > 180)]
-    dead = df.ix[(df['os_flag'] == 1) and (df['os'] < 180)]
+TH = 18 * 30
+
+def filter_survive_x (df):
+    live = df.loc[(df['os_flag'] == 0) & (df['os'] > TH)]
+    dead = df.loc[(df['os_flag'] == 1) & (df['os'] < TH)]
     return live, dead
 
-for k, df in cohorts.items():
-    print(k)
-    print(df.describe())
-    print()
-    #live, dead = filter_survive(df)
-    #print(k, live.shape[0], dead.shape[0])
+def filter_survive (df):
+    live = df.loc[(df['os_flag'] == 0)]
+    dead = df.loc[(df['os_flag'] == 1)]
+    return live, dead
 
+for k in COHORTS:
+    df = cohorts[k]
+    print(k)
+    #print(df.describe())
+    live, dead = filter_survive(df)
+    live_long, dead_short = filter_survive_x(df)
+    nl = live.shape[0]
+    nll = live_long.shape[0]
+    nd = dead.shape[0]
+    nds = dead_short.shape[0]
+    no = df.shape[0] - nl - nd
+    print(k, nl, '>', nll, nd, '>', nds, no)
+    print(live.describe())
+    print()
+    print(live_long.describe())
+    print()
