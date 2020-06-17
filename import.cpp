@@ -23,7 +23,7 @@ int main (int argc, char *argv[]) {
         desc_visible.add_options()
             ("help,h", "produce help message.")
             ("version,v", "print version.")
-            ("ref", po::value(&ref_path)->default_value("data/ref"), "")
+            ("ref", po::value(&ref_path)->default_value("meta/ref"), "")
             ("output,o", po::value(&output_prefix)->default_value("out"), "output prefix")
             ;
 

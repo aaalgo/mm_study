@@ -7,7 +7,7 @@
 #include <boost/progress.hpp>
 #include <boost/program_options.hpp>
 #include <boost/python/numpy.hpp>
-#include "latte.h"
+#include "mm_study.h"
 
 using namespace std;
 using namespace latte;
@@ -111,7 +111,7 @@ int main (int argc, char *argv[]) {
 	}
     Py_Initialize();
     np::initialize();
-    Ref genes("data/ref");
+    Ref genes("meta/ref");
     py::object np_load = py::import("numpy").attr("load");
     np::ndarray rank0 = np::array(np_load(input1_path));
     np::ndarray rank = np::array(np_load(input2_path));
