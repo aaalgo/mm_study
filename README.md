@@ -141,8 +141,8 @@ These operations rely on pre-computed results in the data directory.
 4.1. Draw Chromosome
 
 ```
-./draw_chromosome.py
-./stat_chromosome.py
+./draw_chromosome.py	# output in html/chromes
+./stat_chromosome.py	# output image in current directory
 ```
 
 
