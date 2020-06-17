@@ -158,6 +158,8 @@ These operations rely on pre-computed results in the data directory.
 
 4.3 Enrichment Study
 
+This scripts calls NCI web services to do pathway enrichment analysis.
+
 ```
 ./enrichment.py
 ```
