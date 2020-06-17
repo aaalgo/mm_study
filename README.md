@@ -144,9 +144,13 @@ These operations rely on pre-computed results in the data directory.
 ./enrichment.py
 ```
 
-This generates html/
+This generates html/enrichment.
 
-Generate wordcloud:
+Generate wordcloud after the above step:
+
+```
+./wc.py
+```
 
 
 
