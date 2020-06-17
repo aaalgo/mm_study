@@ -15,7 +15,14 @@ TOTAL number of genes: 54675
 
 # 2. Data
 
-## 2.1 Microarray data
+If you have obtained mm_data.tar.bz2, goto the directory mm_study and
+run
+```
+tar xf mm_data.tar.bz2
+```
+After that, you should have 'data' and 'meta' under mm_study.
+
+## 2.1 Microarray data (You don't have that)
 
 Background: bg
 Foreground: GSE19784, GSE24080, uams/{bl, mel, vel}
@@ -25,7 +32,7 @@ UAMS:
 - bl: baseline
 - mel, vel: after drug treatments.
 
-## 2.2 Meta files
+## 2.2 Meta files (Provided separately)
 
 - meta/goa_human.gaf: gene to go term mapping.
 - meta/HG-U133_Plus_2.na36.annot.csv : probeset to gene mapping.
