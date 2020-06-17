@@ -22,7 +22,7 @@ tar xf mm_data.tar.bz2
 ```
 After that, you should have 'data' and 'meta' under mm_study.
 
-## 2.1 Microarray data (You don't have that)
+## 2.1 Microarray data [ONLY RUN IF YOU HAVE MAS5 FILES]
 
 Background: bg
 Foreground: GSE19784, GSE24080, uams/{bl, mel, vel}
@@ -80,9 +80,13 @@ have the data so skip this step.
 - data/ranks/   : interesting probesets ranking & images
 
 
-3. MAS5 Operations [ONLY RUN IF YOU HAVE MAS5 FILES]
+# 3. MAS5 Operations [ONLY RUN IF YOU HAVE MAS5 FILES]
 
-3.1 Build
+The intermediate results of these steps are provided in mm_data.tar.bz2.
+Do not run these steps.
+
+
+## 3.1 Build
 
 These C++ files need to be built.  On ubuntu 18.04, install g++ and boost with
 ```
@@ -94,7 +98,7 @@ Then type make to build the executable binaries.
 make
 ```
 
-3.1 import [ONLY IF YOU HAVE MAS FILES]
+## 3.2 import [ONLY IF YOU HAVE MAS FILES]
 
 ```
 find xxx/ -type f | ./import -o yyy
@@ -121,7 +125,7 @@ find mas5/uams/bl -type f | ./import -o bl		# baselevel
 ```
 
 
-3.2 compare [ONLY IF YOU HAVE MAS FILES]
+## 3.3 compare [ONLY IF YOU HAVE MAS FILES]
 
 ```
 Compare bg.npy bl.npy
@@ -130,7 +134,7 @@ Compare bg.npy bl.npy
 compare the two sets and generate AUC score for each gene in the second set.  Generate an AUC value for each gene.
 
 
-4. Other Scripts [WITH PRE-GENERATED RESULTS]
+4. Other Scripts [TRY THESE OUT]
 
 These operations rely on pre-computed results in the data directory.
 

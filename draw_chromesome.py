@@ -5,6 +5,9 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
+import subprocess as sp
+
+sp.call('mkdir -p html/chromes', shell=True)
 
 cmap = plt.get_cmap('jet')
 with open('data/gene_id.pkl', 'rb') as f:
@@ -104,7 +107,7 @@ def gen_image (pos, pos_l, neg, neg_l):
         pass
     return image
 
-with open('chromes/index.html', 'w') as f:
+with open('html/chromes/index.html', 'w') as f:
     f.write('<HTML><BODY>\n')
     for name in names:
         pos = images[name + '+']
