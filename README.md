@@ -1,5 +1,9 @@
 
-Python requirements are in requirements.txt
+Python requirements are in requirements.txt.  Install with 
+
+```
+pip3 install -r requirements.txt
+```
 
 # 1. Glossary
 

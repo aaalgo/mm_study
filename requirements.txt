@@ -1,3 +1,7 @@
 suds-py3
 wordcloud
-
+opencv-python
+matplotlib
+numpy
+openpyxl
+pandas
