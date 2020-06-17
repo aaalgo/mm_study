@@ -1,3 +1,6 @@
+
+Python requirements are in requirements.txt
+
 # 1. Glossary
 
 - probeset
